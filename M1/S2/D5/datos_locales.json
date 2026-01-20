@@ -1,0 +1,27 @@
+{
+  "timestamp": 1768927339299,
+  "users": [
+    {
+      "id": 1,
+      "nombre": "Ana",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos",
+      "role": "user"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 101,
+      "userId": 1,
+      "monto": 50
+    },
+    {
+      "id": 102,
+      "userId": 2,
+      "monto": 120
+    }
+  ]
+}
