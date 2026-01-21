@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kranio Dashboard</title>
+    <meta name="description" content="Dashboard administrativo responsivo con tema oscuro/claro">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">K</span>
+                    <span class="logo-text">KranioAdmin</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar" aria-label="Cerrar menú">
+                    &times;
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <span class="icon">📊</span>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">👥</span>
+                            <span class="text">Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">📈</span>
+                            <span class="text">Analíticas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">📁</span>
+                            <span class="text">Proyectos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">⚙️</span>
+                            <span class="text">Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">AC</div>
+                    <div class="user-details">
+                        <p class="name">Alvaro C.</p>
+                        <p class="role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                        <span class="icon-sun">☀️</span>
+                        <span class="icon-moon">🌙</span>
+                    </button>
+                    <button class="notification-btn">
+                        🔔 <span class="badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Welcome Section -->
+                <div class="welcome-section fade-in">
+                    <h1>Resumen General</h1>
+                    <p>Bienvenido de nuevo, aquí tienes lo último de hoy.</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card slide-up" style="--delay: 0.1s">
+                        <div class="stat-icon income">💰</div>
+                        <div class="stat-info">
+                            <h3>Ingresos</h3>
+                            <p class="value">$24,500</p>
+                            <p class="trend positive">+12% vs mes anterior</p>
+                        </div>
+                    </div>
+                    <div class="stat-card slide-up" style="--delay: 0.2s">
+                        <div class="stat-icon users">👥</div>
+                        <div class="stat-info">
+                            <h3>Usuarios</h3>
+                            <p class="value">1,240</p>
+                            <p class="trend positive">+5% nuevos usuarios</p>
+                        </div>
+                    </div>
+                    <div class="stat-card slide-up" style="--delay: 0.3s">
+                        <div class="stat-icon projects">🚀</div>
+                        <div class="stat-info">
+                            <h3>Proyectos</h3>
+                            <p class="value">42</p>
+                            <p class="trend neutral">2 en pausa</p>
+                        </div>
+                    </div>
+                    <div class="stat-card slide-up" style="--delay: 0.4s">
+                        <div class="stat-icon tasks">⚡</div>
+                        <div class="stat-info">
+                            <h3>Tareas</h3>
+                            <p class="value">18</p>
+                            <p class="trend negative">-3 completadas hoy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section (CSS Only) -->
+                <div class="charts-grid">
+                    <div class="chart-card bar-chart-container fade-in">
+                        <div class="card-header">
+                            <h3>Visitas Semanales</h3>
+                            <button class="more-options">...</button>
+                        </div>
+                        <div class="css-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 60%" data-tooltip="Lun: 60%"></div>
+                                <span>L</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 80%" data-tooltip="Mar: 80%"></div>
+                                <span>M</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 45%" data-tooltip="Mie: 45%"></div>
+                                <span>X</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 90%" data-tooltip="Jue: 90%"></div>
+                                <span>J</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 75%" data-tooltip="Vie: 75%"></div>
+                                <span>V</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 50%" data-tooltip="Sab: 50%"></div>
+                                <span>S</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="--h: 30%" data-tooltip="Dom: 30%"></div>
+                                <span>D</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card pie-chart-container fade-in">
+                        <div class="card-header">
+                            <h3>Distribución de Dispositivos</h3>
+                            <button class="more-options">...</button>
+                        </div>
+                        <div class="chart-flex">
+                            <div class="css-pie-chart"
+                                style="--p1: 60; --p2: 30; --p3: 10; --c1: var(--accent); --c2: var(--secondary); --c3: var(--tertiary);">
+                            </div>
+                            <ul class="chart-legend">
+                                <li><span class="dot" style="background: var(--accent)"></span> Móvil (60%)</li>
+                                <li><span class="dot" style="background: var(--secondary)"></span> Desktop (30%)</li>
+                                <li><span class="dot" style="background: var(--tertiary)"></span> Tablet (10%)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section fade-in">
+                    <div class="card-header">
+                        <h3>Actividad Reciente</h3>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="circle primary"></div>
+                            <div class="activity-content">
+                                <p><strong>Nuevo proyecto creado</strong>: "Rebranding 2026"</p>
+                                <span class="time">Hace 10 min</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="circle success"></div>
+                            <div class="activity-content">
+                                <p><strong>Tarea completada</strong>: Actualizar homepage</p>
+                                <span class="time">Hace 45 min</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="circle warning"></div>
+                            <div class="activity-content">
+                                <p><strong>Alerta de servidor</strong>: Uso de CPU alto</p>
+                                <span class="time">Hace 2 horas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
