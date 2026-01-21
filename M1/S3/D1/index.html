@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Alvaro Castillo">
+    <meta description="Portafolio de Alvaro Castillo - Desarrollador Web">
+    <meta keywords="Alvaro Castillo, portafolio, desarrollador web">
+    <title>Mi Portafolio - Desarrollador Web</title>
+    <style>
+        :root {
+            --primary: #64ffda;
+            --primary-dark: #3fb893;
+            --secondary: #ccd6f6;
+            --text: #8892b0;
+            --text-light: #a8b2d1;
+            --bg: #0a192f;
+            --card-bg: #112240;
+            --border: #233554;
+            --accent: #64ffda;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 1.5rem 6rem;
+            background: transparent;
+            color: var(--secondary);
+            margin-bottom: 0;
+        }
+
+        .hero h2 {
+            color: var(--secondary);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 1;
+            color: var(--text);
+        }
+
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid var(--primary);
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .proyecto-card {
+            background: var(--card-bg);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+
+        .proyecto-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        .proyecto-card h3 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .proyecto-card p {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: normal;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            display: inline-block;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 500;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--secondary);
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .checkbox-label {
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .checkbox-label input {
+            width: auto;
+        }
+
+        footer {
+            background: var(--bg);
+            color: var(--text);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            margin: 0 0.5rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2.25rem;
+            }
+
+            nav {
+                flex-direction: column;
+                padding-bottom: 0;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Alvaro Castillo</a>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h2>Crea el futuro web hoy</h2>
+                <p>Desarrollador Fullstack especializado en construir experiencias digitales excepcionales con
+                    tecnologías modernas.</p>
+                <a href="#contacto" class="btn">Contáctame</a>
+            </div>
+        </section>
+
+        <section id="sobre-mi">
+            <div class="container">
+                <h2>Sobre Mí</h2>
+                <div class="about-content">
+                    <article>
+                        <p>
+                            Soy un desarrollador web apasionado con una sólida trayectoria en JavaScript, Java, Python y
+                            Node.js.
+                            Mi enfoque combina la estética del diseño con la robustez técnica para crear aplicaciones
+                            que no solo funcionan bien, sino que se sienten geniales al usar.
+                        </p>
+
+                        <h3>Mis Habilidades Técnicas</h3>
+                        <ul class="skills-list">
+                            <li class="skill-tag">HTML5 & CSS3</li>
+                            <li class="skill-tag">JavaScript (ES6+)</li>
+                            <li class="skill-tag">Express.js</li>
+                            <li class="skill-tag">Node.js</li>
+                            <li class="skill-tag">Django</li>
+                            <li class="skill-tag">Spring Boot</li>
+                            <li class="skill-tag">PostgreSQL</li>
+                            <li class="skill-tag">SQL</li>
+                            <li class="skill-tag">Git</li>
+                            <li class="skill-tag">GitHub</li>
+                            <li class="skill-tag">Responsive Design</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <div class="container">
+                <h2>Mis Proyectos Destacados</h2>
+                <div class="proyectos-grid">
+                    <article class="proyecto-card">
+                        <h3>Travels App</h3>
+                        <p>Aplicación de viajes con gestión de reservas, carrito de compras y pasarela de pagos
+                            integrada.</p>
+                        <div class="tech-stack">Java • Spring Boot • PostgreSQL • HTML • CSS • JavaScript</div>
+                    </article>
+
+                    <article class="proyecto-card">
+                        <h3>Task Manager Pro</h3>
+                        <p>Gestor de tareas colaborativo en tiempo real. Permite a equipos organizar flujos de trabajo
+                            con actualizaciones instantáneas.</p>
+                        <div class="tech-stack">Python • Django • PostgreSQL • HTML • CSS • JavaScript</div>
+                    </article>
+
+                    <article class="proyecto-card">
+                        <h3>Weather Dashboard</h3>
+                        <p>Visualizador de datos meteorológicos que consume múltiples APIs para ofrecer pronósticos
+                            precisos y gráficos interactivos.</p>
+                        <div class="tech-stack">Express.js • Node.js • PostgreSQL • HTML • CSS • JavaScript</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <h2>Hablemos</h2>
+                <form action="/contacto" method="POST">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required
+                                minlength="2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono (Opcional)</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un motivo...</option>
+                                <option value="proyecto">Consulta sobre proyecto</option>
+                                <option value="colaboracion">Propuesta de colaboración</option>
+                                <option value="empleo">Oportunidad laboral</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Tu mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame sobre tu proyecto..."
+                                required minlength="10"></textarea>
+                        </div>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" value="si">
+                            <span>Suscribirme al newsletter para recibir novedades</span>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Enviar
+                            Mensaje</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alvaro Castillo. Todos los derechos reservados.</p>
+            <p>
+                <a href="https://github.com/Phonethedor" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/agcm2504/" target="_blank">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
