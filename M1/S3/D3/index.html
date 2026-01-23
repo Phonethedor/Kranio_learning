@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Alvaro Castillo">
     <title>Kranio Dashboard</title>
     <meta name="description" content="Dashboard administrativo responsivo con tema oscuro/claro">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -11,7 +12,6 @@
 
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -69,7 +69,6 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
             <header class="top-bar">
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -94,13 +93,11 @@
             </header>
 
             <div class="content-wrapper">
-                <!-- Welcome Section -->
                 <div class="welcome-section fade-in">
                     <h1>Resumen General</h1>
                     <p>Bienvenido de nuevo, aquí tienes lo último de hoy.</p>
                 </div>
 
-                <!-- Stats Grid -->
                 <div class="stats-grid">
                     <div class="stat-card slide-up" style="--delay: 0.1s">
                         <div class="stat-icon income">💰</div>
@@ -136,7 +133,6 @@
                     </div>
                 </div>
 
-                <!-- Charts Section (CSS Only) -->
                 <div class="charts-grid">
                     <div class="chart-card bar-chart-container fade-in">
                         <div class="card-header">
@@ -193,7 +189,6 @@
                     </div>
                 </div>
 
-                <!-- Recent Activity -->
                 <div class="activity-section fade-in">
                     <div class="card-header">
                         <h3>Actividad Reciente</h3>
@@ -227,7 +222,6 @@
         </main>
     </div>
 
-    <!-- Overlay for mobile sidebar -->
     <div class="overlay" id="overlay"></div>
 
     <script src="assets/js/script.js"></script>
